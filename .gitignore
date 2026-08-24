@@ -1,0 +1,40 @@
+# PYTHON
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# AMBIENTE VIRTUAL
+venv/
+env/
+ENV/
+.venv/
+
+# ARQUIVOS SENSÍVEIS
+.env
+.env.local
+.env.production
+*.env
+!.env.example
+
+# BANCO DE DADOS
+*.db
+*.sqlite
+*.sqlite3
+data/*.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# SISTEMA
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# LOGS
+*.log
+logs/
