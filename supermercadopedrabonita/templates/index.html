@@ -1,16 +1,142 @@
 {% extends "base.html" %}
 
 {% block conteudo %}
-<h1>Bem-vindo ao Supermercado Pedra Bonita!</h1>
+<div class="banner-container">
+    <div id="carouselPromocoes" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+        
+        <!-- BOLINHAS (indicadores) -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselPromocoes" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#carouselPromocoes" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#carouselPromocoes" data-bs-slide-to="2"></button>
+        </div>
+        
+        
+        <!-- IMAGENS -->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{{ url_for('static', filename='img/BannerPrincipal.png') }}" class="d-block w-100" alt="Supermercado Pedra Bonita">
+            </div>
+            <div class="carousel-item">
+                <img src="{{ url_for('static', filename='img/BannerEntrega.png') }}" class="d-block w-100" alt="Entrega em domicílio">
+            </div>
+            <div class="carousel-item">
+                <img src="{{ url_for('static', filename='img/BannerAgua.png') }}" class="d-block w-100" alt="Água">
+            </div>
+        </div>
+        
+        <!-- SETA ESQUERDA -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselPromocoes" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        
+        <!-- SETA DIREITA -->
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselPromocoes" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+        
+    </div>
 
-<p>Oferecemos uma ampla variedade de produtos frescos e de qualidade</p>
+    <!-- CATEGORIAS -->
+<div class="categorias-container">
+    <h2>Nossas Categorias</h2>
+    
+    <div class="categorias-grid">
+        <!-- ALIMENTOS -->
+        <a href="{{ url_for('produtos') }}" class="categoria-card">
+            <img src="{{ url_for('static', filename='img/categoria-alimentos.png') }}" 
+                 alt="Alimentos">
+            <p>Alimentos</p>
+        </a>
+        
+        <!-- BEBIDAS -->
+        <a href="{{ url_for('produtos') }}" class="categoria-card">
+            <img src="{{ url_for('static', filename='img/categoria-bebidas.png') }}" 
+                 alt="Bebidas">
+            <p>Bebidas</p>
+        </a>
+        
+        <!-- LIMPEZA -->
+        <a href="{{ url_for('produtos') }}" class="categoria-card">
+            <img src="{{ url_for('static', filename='img/categoria-limpeza.png') }}" 
+                 alt="Limpeza">
+            <p>Limpeza</p>
+        </a>
+        
+        <!-- HORTIFRUTI -->
+        <a href="{{ url_for('produtos') }}" class="categoria-card">
+            <img src="{{ url_for('static', filename='img/categoria-hortifruti.png') }}" 
+                 alt="Hortifruti">
+            <p>Hortifruti</p>
+        </a>
+    </div>
+</div>
 
-<h2>Horário de Funcionamento:</h2>
-<ul>
-    <li>Segunda a Sexta: 07:00 - 19:00</li>
-    <li>Sábado: 07:00 - 19:00</li>
-    <li>Domingo: Fechado</li>
-</ul>
+<div class="destaque-container">
+    <h2>Produtos em Destaque</h2>
+    
+    <div class="destaque-grid">
+        <!-- ARROZ -->
+        <div class="produto-card">
+            <img src="{{ url_for('static', filename='img/produtos/arroz.png') }}" 
+                 alt="Arroz 5kg" 
+                 class="produto-img">
+            <h3>Arroz 5kg</h3>
+            <p class="preco">R$ 18,90</p>
+            <button class="btn-comprar">Comprar</button>
+        </div>
+        
+        <!-- FEIJÃO -->
+        <div class="produto-card">
+            <img src="{{ url_for('static', filename='img/produtos/feijao.png') }}" 
+                 alt="Feijão 1kg" 
+                 class="produto-img">
+            <h3>Feijão 1kg</h3>
+            <p class="preco">R$ 7,50</p>
+            <button class="btn-comprar">Comprar</button>
+        </div>
+        
+        <!-- SORVETE -->
+        <div class="produto-card">
+            <img src="{{ url_for('static', filename='img/produtos/sorvete.png') }}" 
+                 alt="Sorvete" 
+                 class="produto-img">
+            <h3>Sorvete 2L</h3>
+            <p class="preco">R$ 22,90</p>
+            <button class="btn-comprar">Comprar</button>
+        </div>
+        
+        <!-- TAPETE DE CROCHÊ -->
+        <div class="produto-card">
+            <img src="{{ url_for('static', filename='img/produtos/tapete-croche.png') }}" 
+                 alt="Tapete de Crochê" 
+                 class="produto-img">
+            <h3>Tapete de Crochê</h3>
+            <p class="preco">R$ 35,00</p>
+            <button class="btn-comprar">Comprar</button>
+        </div>
+        
+        <!-- LEITE -->
+        <div class="produto-card">
+            <img src="{{ url_for('static', filename='img/produtos/leite.png') }}" 
+                 alt="Leite 1L" 
+                 class="produto-img">
+            <h3>Leite 1L</h3>
+            <p class="preco">R$ 4,20</p>
+            <button class="btn-comprar">Comprar</button>
+        </div>
+        
+        <!-- CAFÉ -->
+        <div class="produto-card">
+            <img src="{{ url_for('static', filename='img/produtos/cafe.png') }}" 
+                 alt="Café 500g" 
+                 class="produto-img">
+            <h3>Café 500g</h3>
+            <p class="preco">R$ 12,90</p>
+            <button class="btn-comprar">Comprar</button>
+        </div>
+    </div>
 
-
+</div>
+</div>
 {% endblock %}

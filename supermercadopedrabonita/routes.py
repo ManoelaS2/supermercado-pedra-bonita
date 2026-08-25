@@ -4,7 +4,7 @@ from flask import Flask, app, render_template, request, url_for, redirect, sessi
 from supermercadopedrabonita import app 
 
 NOME = "Supermercado Pedra Bonita"
-TELEFONE = "(62) 99999-9999"
+TELEFONE = "(62) 99999-8888"
 
 @app.route('/')
 def home():
@@ -47,3 +47,11 @@ def cadastro():
         return "Cadastro realizado!"
     
     return render_template('cadastro.html')
+
+@app.route('/produtos')
+def produtos():
+    return render_template('produtos.html')
+
+@app.route('/carrinho')
+def carrinho():
+    return render_template('carrinho.html')
