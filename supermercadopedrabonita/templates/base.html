@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block titulo %}
+        Supermercado Pedra Bonita
+        {% endblock %}
+    </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/produtos">Produtos</a>
+        <a href="/carrinho">Carrinho</a>
+    </nav>
+    
+    {% block conteudo %}
+    {% endblock %}
+    
+    <footer>
+        <p>© 2024 Supermercado Pedra Bonita</p>
+    </footer>
+</body>
+</html>
