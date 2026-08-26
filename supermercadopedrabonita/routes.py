@@ -2,8 +2,11 @@
 from flask import Flask, app, render_template, request, url_for, redirect, session 
 from supermercadopedrabonita import app, db 
 
-from supermercadopedrabonita.models import Produto 
+from supermercadopedrabonita.models import Produto,Pedido
 import unicodedata
+import json 
+from urllib.parse import quote
+import os
 
 def remover_acentos(texto):
     """Remove acentos e deixa minúsculo"""
@@ -196,7 +199,8 @@ def processar_pedido():
     
     session.pop('carrinho', None)
     
-    numero_whatsapp = "5562999998888"
-    link_whatsapp = f"https://wa.me/{numero_whatsapp}?text={mensagem}"
+    numero_whatsapp = os.getenv('WHATSAPP_NUMBER', '5562999999999')
+    mensagem_codificada = quote(mensagem)
+    link_whatsapp = f"https://wa.me/{numero_whatsapp}?text={mensagem_codificada}"
     
     return redirect(link_whatsapp)

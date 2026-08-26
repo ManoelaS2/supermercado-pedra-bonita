@@ -43,28 +43,28 @@
     
     <div class="categorias-grid">
         <!-- ALIMENTOS -->
-        <a href="{{ url_for('produtos') }}" class="categoria-card">
+        <a href="{{ url_for('produtos', categoria='Alimentos') }}" class="categoria-card">
             <img src="{{ url_for('static', filename='img/categoria-alimentos.png') }}" 
                  alt="Alimentos">
             <p>Alimentos</p>
         </a>
         
         <!-- BEBIDAS -->
-        <a href="{{ url_for('produtos') }}" class="categoria-card">
+        <a href="{{ url_for('produtos', categoria='Bebidas') }}" class="categoria-card">
             <img src="{{ url_for('static', filename='img/categoria-bebidas.png') }}" 
                  alt="Bebidas">
             <p>Bebidas</p>
         </a>
         
         <!-- LIMPEZA -->
-        <a href="{{ url_for('produtos') }}" class="categoria-card">
+        <a href="{{ url_for('produtos', categoria='Limpeza') }}" class="categoria-card">
             <img src="{{ url_for('static', filename='img/categoria-limpeza.png') }}" 
                  alt="Limpeza">
             <p>Limpeza</p>
         </a>
         
         <!-- HORTIFRUTI -->
-        <a href="{{ url_for('produtos') }}" class="categoria-card">
+        <a href="{{ url_for('produtos', categoria='Hortifruti') }}" class="categoria-card">
             <img src="{{ url_for('static', filename='img/categoria-hortifruti.png') }}" 
                  alt="Hortifruti">
             <p>Hortifruti</p>

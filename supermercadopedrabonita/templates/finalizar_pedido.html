@@ -22,7 +22,7 @@
     <div class="checkout-form">
         <h3>Dados para Entrega</h3>
         
-        <form action="{{ url_for('finalizar_pedido') }}" method="POST">
+        <form action="{{ url_for('processar_pedido') }}" method="POST">
             <div class="form-grupo">
                 <label>Nome Completo:</label>
                 <input type="text" name="nome" required placeholder="Seu nome completo">

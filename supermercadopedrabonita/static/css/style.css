@@ -24,7 +24,7 @@
 
 /* LOGO (imagem) */
 .logo-img {
-    width: 250px;  /* Ajuste conforme o tamanho da sua logo */
+    width: 250px;  
     height: auto;
     display: block;
 }
@@ -66,10 +66,10 @@
 .search input {
     width: 250px;
     padding: 10px 15px;
-    border: 2px solid #0191bb;  /* Borda azul */
+    border: 2px solid #0191bb;  
     border-radius: 25px;
-    background: #f8f9fa;  /* Fundo cinza claro */
-    color: #333;  /* Texto ESCURO quando digita */
+    background: #f8f9fa;  
+    color: #333; 
     font-size: 14px;
     outline: none;
     transition: 0.3s;
@@ -160,10 +160,10 @@
 
 .carousel-item img {
     width: 100%;
-    height: 500px;  /* Altura FIXA */
+    height: 500px;  
     object-fit: contain;  
     display: block;
-    margin: 0 auto;  /* Centraliza */
+    margin: 0 auto;  
 }
 
 /* SETAS */
@@ -171,7 +171,7 @@
 .carousel-control-next {
     width: 50px;
     height: 50px;
-    background: rgba(1, 145, 187, 0.8);  /* Azul com transparência */
+    background: rgba(1, 145, 187, 0.8); 
     border-radius: 50%;
     top: 50%;
     transform: translateY(-50%);
@@ -209,7 +209,7 @@
 
 /* RODAPÉ */
 .footer {
-    background: #01579b;  /* Azul escuro */
+    background: #01579b;  
     color: #fff;
     margin-top: 50px;
 }
@@ -228,7 +228,7 @@
 }
 
 .footer-col h3 {
-    color: #ffd700;  /* Dourado */
+    color: #ffd700;  
     margin-bottom: 15px;
     font-size: 18px;
 }
@@ -259,7 +259,7 @@
 }
 
 .footer-bottom {
-    background: #014377;  /* Azul mais escuro */
+    background: #014377;  
     text-align: center;
     padding: 15px 0;
     font-size: 14px;
@@ -813,4 +813,216 @@
     background: #128C7E;
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* RESPONSIVIDADE */
+
+/* TABLET (até 768px) */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+        width: 100%;
+    }
+    
+    .logo-img {
+        width: 180px;
+    }
+    
+    .menu ul {
+        gap: 5px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .menu ul li a {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+    
+    .search {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .search form {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .search input {
+        width: 60%;
+        max-width: 300px;
+    }
+    
+    .banner-container,
+    .categorias-container,
+    .destaque-container,
+    .produtos-container,
+    .carrinho-container,
+    .checkout-container {
+        width: 95%;
+        margin: auto;
+        padding: 20px 10px;
+    }
+    
+    .categorias-grid,
+    .destaque-grid,
+    .produtos-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .carousel-item img {
+        height: 200px;
+    }
+    
+    .faixa-info .carousel-item p {
+        font-size: 16px;
+    }
+    
+    /* CARRINHO */
+    .carrinho-item {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 10px;
+    }
+    
+    .carrinho-item img {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .item-info {
+        flex: 1;
+        min-width: 100px;
+    }
+    
+    .quantidade {
+        margin: 0;
+    }
+    
+    /* RODAPÉ */
+    .footer-container {
+        width: 100%;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .footer-col {
+        width: 100%;
+    }
+}
+
+/* CELULAR (até 480px) */
+@media (max-width: 480px) {
+    .logo-img {
+        width: 140px;
+    }
+    
+    .menu ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    
+    .menu ul li a {
+        font-size: 13px;
+        padding: 6px 8px;
+    }
+    
+    .search input {
+        width: 70%;
+    }
+    
+    .categorias-grid,
+    .destaque-grid,
+    .produtos-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .carousel-item img {
+        height: 150px;
+    }
+    
+    .faixa-info .carousel-item p {
+        font-size: 12px;
+        flex-direction: column;
+        gap: 2px;
+    }
+    
+    .faixa-info .carousel-item img {
+        width: 18px;
+        height: 18px;
+    }
+
+    
+    /* CARRINHO no celular */
+    .carrinho-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .carrinho-item img {
+        width: 80px;
+        height: 80px;
+        margin: auto;
+    }
+    
+    .item-info {
+        text-align: center;
+    }
+    
+    .subtotal {
+        text-align: center;
+    }
+    
+    .btn-excluir {
+    width: 35px;  
+    height: 35px; 
+    margin: auto;
+    }
+
+    .btn-excluir img {
+        width: 18px;  
+        height: 18px;  
+    }
+    
+    .checkout-container h2 {
+        font-size: 24px;
+    }
+    
+    .resumo-pedido,
+    .checkout-form {
+        padding: 15px;
+    }
+}
+
+/* TELAS GRANDES (acima de 769px) */
+@media (min-width: 769px) {
+    .banner-container,
+    .categorias-container,
+    .destaque-container,
+    .produtos-container,
+    .carrinho-container,
+    .checkout-container {
+        width: 95%;
+        max-width: 1600px;
+        margin: auto;
+    }
 }
