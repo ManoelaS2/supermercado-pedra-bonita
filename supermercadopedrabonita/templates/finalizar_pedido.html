@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+<div class="checkout-container">
+    <h2>Finalizar Pedido</h2>
+    
+    <!-- RESUMO DO PEDIDO -->
+    <div class="resumo-pedido">
+        <h3>Resumo do Pedido</h3>
+        {% for item in itens %}
+        <div class="resumo-item">
+            <span>{{ item.quantidade }}x {{ item.nome }}</span>
+            <span>R$ {{ "%.2f"|format(item.preco * item.quantidade) }}</span>
+        </div>
+        {% endfor %}
+        <div class="resumo-total">
+            <strong>Total: R$ {{ "%.2f"|format(total) }}</strong>
+        </div>
+    </div>
+    
+    <!-- FORMULÁRIO -->
+    <div class="checkout-form">
+        <h3>Dados para Entrega</h3>
+        
+        <form action="{{ url_for('finalizar_pedido') }}" method="POST">
+            <div class="form-grupo">
+                <label>Nome Completo:</label>
+                <input type="text" name="nome" required placeholder="Seu nome completo">
+            </div>
+            
+            <div class="form-grupo">
+                <label>Telefone:</label>
+                <input type="tel" name="telefone" required placeholder="(99) 99999-9999">
+            </div>
+            
+            <div class="form-grupo">
+                <label>Endereço de Entrega:</label>
+                <input type="text" name="endereco" placeholder="Rua, Quadra, Lote, Bairro">
+            </div>
+            
+            <div class="form-grupo">
+                <label>Observações:</label>
+                <textarea name="observacoes" rows="3" placeholder="Alguma observação?"></textarea>
+            </div>
+            
+            <button type="submit" class="btn-confirmar">Confirmar via WhatsApp</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

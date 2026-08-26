@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+<div class="carrinho-container">
+    <h2>Seu Carrinho</h2>
+    
+    {% if itens %}
+    <div class="carrinho-itens">
+        {% for item in itens %}
+        <div class="carrinho-item">
+
+            <img src="{{ url_for('static', filename=item.imagem) }}" alt="{{ item.nome }}">
+            
+            <div class="item-info">
+                <h3>{{ item.nome }}</h3>
+                <p>R$ {{ "%.2f"|format(item.preco) }}</p>
+            </div>
+            
+            <div class="quantidade">
+                <a href="{{ url_for('diminuir_quantidade', produto_id=item.id) }}" class="qtd-btn">-</a>
+                <span>{{ item.quantidade }}</span>
+                <a href="{{ url_for('aumentar_quantidade', produto_id=item.id) }}" class="qtd-btn">+</a>
+            </div>
+            
+            <p class="subtotal">R$ {{ "%.2f"|format(item.preco * item.quantidade) }}</p>
+            
+            <a href="{{ url_for('remover_item', produto_id=item.id) }}" class="btn-excluir">
+                <img src="{{ url_for('static', filename='img/icone-excluir.png') }}" alt="Excluir">
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <div class="carrinho-acoes">
+        <a href="{{ url_for('produtos') }}" class="btn-continuar"><img src="{{ url_for('static', filename='img/icone-mais.png') }}" alt="Adicionar"> Adicionar mais itens</a>
+    </div>
+    
+    <div class="carrinho-total">
+        <h3>Total: R$ {{ "%.2f"|format(total) }}</h3>
+       <a href="{{ url_for('finalizar_pedido') }}"  class="btn-finalizar">
+        Finalizar Pedido
+    </a>Pedido</button>
+    </div>
+    
+    {% else %}
+    <div class="carrinho-vazio">
+        <p>Seu carrinho está vazio</p>
+        <a href="{{ url_for('produtos') }}" class="btn-comprar">Ver Produtos</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

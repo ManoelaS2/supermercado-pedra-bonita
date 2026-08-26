@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+<div class="produtos-container">
+    <h2>Nossos Produtos</h2>
+    
+    {% if busca %}
+    <h3>Resultados para: "{{ busca }}"</h3>
+    {% endif %}
+    <!-- FILTRO POR CATEGORIA -->
+    <div class="filtros">
+        <a href="{{ url_for('produtos') }}" 
+           class="filtro-btn {% if categoria_atual == 'todos' %}ativo{% endif %}">
+            Todos
+        </a>
+        {% for cat in categorias %}
+        <a href="{{ url_for('produtos', categoria=cat[0]) }}" 
+           class="filtro-btn {% if categoria_atual == cat[0] %}ativo{% endif %}">
+            {{ cat[0] }}
+        </a>
+        {% endfor %}
+    </div>
+    
+    <!-- GRID DE PRODUTOS -->
+    <div class="produtos-grid">
+        {% for produto in produtos %}
+        <div class="produto-card">
+            <img src="{{ url_for('static', filename=produto.imagem_url) }}" 
+                 alt="{{ produto.nome }}" 
+                 class="produto-img">
+            <h3>{{ produto.nome }}</h3>
+            <p class="categoria">{{ produto.categoria }}</p>
+            <p class="preco">R$ {{ "%.2f"|format(produto.preco) }}</p>
+            <a href="{{ url_for('adicionar_carrinho', produto_id=produto.id) }}" class="btn-comprar">
+            Comprar
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

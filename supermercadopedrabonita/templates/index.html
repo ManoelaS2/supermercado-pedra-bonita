@@ -75,66 +75,28 @@
 <div class="destaque-container">
     <h2>Produtos em Destaque</h2>
     
-    <div class="destaque-grid">
-        <!-- ARROZ -->
-        <div class="produto-card">
-            <img src="{{ url_for('static', filename='img/produtos/arroz.png') }}" 
-                 alt="Arroz 5kg" 
-                 class="produto-img">
-            <h3>Arroz 5kg</h3>
-            <p class="preco">R$ 18,90</p>
-            <button class="btn-comprar">Comprar</button>
-        </div>
+<div class="destaque-grid">
+    {% for produto in produtos %}
+    <div class="produto-card">
+        <!-- IMAGEM -->
+        <img src="{{ url_for('static', filename=produto.imagem_url) }}" 
+             alt="{{ produto.nome }}" 
+             class="produto-img">
         
-        <!-- FEIJÃO -->
-        <div class="produto-card">
-            <img src="{{ url_for('static', filename='img/produtos/feijao.png') }}" 
-                 alt="Feijão 1kg" 
-                 class="produto-img">
-            <h3>Feijão 1kg</h3>
-            <p class="preco">R$ 7,50</p>
-            <button class="btn-comprar">Comprar</button>
-        </div>
+        <!-- NOME -->
+        <h3>{{ produto.nome }}</h3>
         
-        <!-- SORVETE -->
-        <div class="produto-card">
-            <img src="{{ url_for('static', filename='img/produtos/sorvete.png') }}" 
-                 alt="Sorvete" 
-                 class="produto-img">
-            <h3>Sorvete 2L</h3>
-            <p class="preco">R$ 22,90</p>
-            <button class="btn-comprar">Comprar</button>
-        </div>
+        <!-- PREÇO -->
+        <p class="preco">R$ {{ "%.2f"|format(produto.preco) }}</p>
         
-        <!-- TAPETE DE CROCHÊ -->
-        <div class="produto-card">
-            <img src="{{ url_for('static', filename='img/produtos/tapete-croche.png') }}" 
-                 alt="Tapete de Crochê" 
-                 class="produto-img">
-            <h3>Tapete de Crochê</h3>
-            <p class="preco">R$ 35,00</p>
-            <button class="btn-comprar">Comprar</button>
-        </div>
-        
-        <!-- LEITE -->
-        <div class="produto-card">
-            <img src="{{ url_for('static', filename='img/produtos/leite.png') }}" 
-                 alt="Leite 1L" 
-                 class="produto-img">
-            <h3>Leite 1L</h3>
-            <p class="preco">R$ 4,20</p>
-            <button class="btn-comprar">Comprar</button>
-        </div>
-        
-        <!-- CAFÉ -->
-        <div class="produto-card">
-            <img src="{{ url_for('static', filename='img/produtos/cafe.png') }}" 
-                 alt="Café 500g" 
-                 class="produto-img">
-            <h3>Café 500g</h3>
-            <p class="preco">R$ 12,90</p>
-            <button class="btn-comprar">Comprar</button>
-        </div>
+        <!-- BOTÃO -->
+        <a href="{{ url_for('adicionar_carrinho', produto_id=produto.id) }}" class="btn-comprar">
+    Comprar
+</a>
+    </div>
+    {% endfor %}
+</div>
+</div>
     </div>
 
 </div>
